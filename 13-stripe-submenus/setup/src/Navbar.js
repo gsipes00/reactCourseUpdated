@@ -5,9 +5,14 @@ import { useGlobalContext } from "./context";
 
 const Navbar = () => {
   const { openSidebar, openSubmenu, closeSubmenu } = useGlobalContext();
+
+  // when hovering over menu button, capture button's coordinates, call openSubmenu and pass in coordinates
   const displaySubmenu = (e) => {
-    console.log("hello");
-    openSubmenu();
+    const page = e.target.textContent;
+    const tempBtn = e.target.getBoundingClientRect();
+    const center = (tempBtn.left + tempBtn.right) / 2;
+    const bottom = tempBtn.bottom - 3;
+    openSubmenu(page, { center, bottom });
   };
   return (
     <nav className='nav'>

@@ -8,7 +8,7 @@ const Navbar = () => {
   const [showLinks, setShowLinks] = useState(false);
   // useRef will add a "current" property to whatever object it is referencing and pass the value of the property in the curly braces.
   // linksContainerRef object has a "current" property of null, same is true for the linkRef object. The linksContainerRef object is placed
-  // in the links container div, and the linksRef variable is placed in the <ul>
+  // in the links container div node, and the linksRef variable is placed in the <ul> node
   const linksContainerRef = useRef(null);
   const linksRef = useRef(null);
 
