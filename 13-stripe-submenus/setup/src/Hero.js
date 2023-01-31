@@ -4,7 +4,6 @@ import { useGlobalContext } from "./context";
 const Hero = () => {
   const { closeSubmenu } = useGlobalContext();
   const data = useGlobalContext();
-  console.log(data);
   return (
     <section className='hero'>
       <div className='hero-center'>
