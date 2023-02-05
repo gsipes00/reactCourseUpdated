@@ -5,7 +5,7 @@ const Hero = () => {
   const { closeSubmenu } = useGlobalContext();
   const data = useGlobalContext();
   return (
-    <section className='hero'>
+    <section className='hero' onMouseOver={closeSubmenu}>
       <div className='hero-center'>
         <article className='hero-info'>
           <h1>
