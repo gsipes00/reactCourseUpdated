@@ -9,12 +9,29 @@ const reducer = (state, action) => {
     };
   }
   if (action.type === "INCREASE") {
+    // create a copy of the cart before increasing
     let tempCart = state.cart.map((cartItem) => {
+      // if the cart item clicked for increase matches the tempCart item
       if (cartItem.id === action.payload) {
+        // return the other cart items as is, and increment the cartItem matched by 1
         return { ...cartItem, amount: cartItem.amount + 1 };
       }
       return cartItem;
     });
+    return {
+      ...state,
+      cart: tempCart,
+    };
+  }
+  if (action.type === "DECREASE") {
+    let tempCart = state.cart
+      .map((cartItem) => {
+        if (cartItem.id === action.payload) {
+          return { ...cartItem, amount: cartItem.amount - 1 };
+        }
+        return cartItem;
+      })
+      .filter((cartItem) => cartItem.amount !== 0);
     return {
       ...state,
       cart: tempCart,
