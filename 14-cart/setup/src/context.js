@@ -11,7 +11,6 @@ const initialState = {
   cart: cartItems,
   total: 0,
   amount: 0,
-  quantity: 0,
   name: ["Gene", "Charles", "Robby", "Thurston"],
 };
 
@@ -34,6 +33,10 @@ const AppProvider = ({ children }) => {
   const decrease = (id) => {
     dispatch({ type: "DECREASE", payload: id });
   };
+  // useEffect
+  useEffect(() => {
+    dispatch({ type: "GET_TOTALS" });
+  }, [state.cart]);
 
   return (
     <AppContext.Provider
